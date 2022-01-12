@@ -88,6 +88,9 @@ export default {
     middleware: ['auth']
   },
 
+  srr:true,
+  target: 'server',
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
