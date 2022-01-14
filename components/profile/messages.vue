@@ -11,12 +11,12 @@
       show-arrows
     >
       <v-slide-item
-        v-for="n in 15"
-        :key="n"
+        v-for="(item,key) in objPost"
+        :key="key"
         v-slot="{ toggle }"
       >
         <div @click="toggle">
-        <Cards />
+        <Cards :detail="item" />
         </div>
 
       </v-slide-item>
@@ -29,11 +29,18 @@
 <script>
     import Cards from '~/components/profile/card.vue'
     export default {
+      
+        props:[
+          'objPost'
+        ],
+
         components:{
             Cards
         },
+
         data: () => ({
             model: null,
         }),
+
     }
 </script>

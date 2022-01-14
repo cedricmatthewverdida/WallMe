@@ -1,15 +1,14 @@
 <template>
     <v-card
     
-        class="ma-4 card"
+        class="ma-4 card pa-2"
         height="300"
         width="300"
         outline
         elevation="1"
-        shaped
     >
+        
         <v-card-title
-        class="caption"
         >
             <svg class="mr-2" width="34px" height="34px" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="21" cy="44" r="8" fill="#FDAFA4"/>
@@ -23,14 +22,30 @@
                 <path d="M23.7774 13.3355C23.888 12.6719 24.6092 12.3046 25.211 12.6055L28.9359 14.4679C29.6194 14.8097 30.4076 14.8777 31.1396 14.6581L38.9129 12.3261C39.4897 12.1531 40.0876 12.5255 40.1866 13.1196L41.8059 22.8356C41.9075 23.4451 41.4375 24 40.8195 24H23.1805C22.5625 24 22.0925 23.4451 22.1941 22.8356L23.7774 13.3355Z" fill="#0F277F"/>
             </svg>
 
-            Anonymous
+            {{detail.get('identity')}}
         </v-card-title>
+        <v-card-subtitle>
+            <small>{{detail.createdAt | dateFormat}}</small>
+        </v-card-subtitle>
+        
+        <v-card-text>
+            <blockquote>{{detail.get('context')}}</blockquote> 
+        </v-card-text>
+
     </v-card>
 </template>
 
 <script>
+    import moment from 'moment'
     export default {
-        
+        props:[
+            'detail'
+        ],
+        filters:{
+            dateFormat : function (time){
+                return moment(time).startOf('hour').fromNow(); 
+            }
+        }
     }
 </script>
 

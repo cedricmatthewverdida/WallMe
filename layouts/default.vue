@@ -9,19 +9,21 @@
     </v-main>
     
     <TheSnackbar />
-
+    <Footer />
   </v-app>
 </template>
 
 <script>
 import TheSnackbar from '@/components/TheSnackbar.vue';
 import NavigationBar from '~/components/navigation.vue'
+import Footer from '~/components/footer.vue'
 import {mapActions} from 'vuex'
 export default {
 
   components:{
     NavigationBar,
-    TheSnackbar
+    TheSnackbar,
+    Footer
   },
 
   data () {
